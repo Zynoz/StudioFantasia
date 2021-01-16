@@ -1,0 +1,95 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="de">
+<head>
+    <title>Contemporary Dance for adults</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo_final_small.png' %}}"/>
+
+</head>
+<body class="subpage">
+
+<!-- Header -->
+<header id="header">
+    {#    <div class="logo"><a href="{{ url_for('index_en') }}"><img#}
+    {#            src="{{ url_for('static', filename='images/logo_final_small.png') }}"#}
+    <div class="logo"><a href="{% url 'en/index' %}"><img
+            src="{% static 'images/logo_final_small.png' %}"
+            alt="studio fantasia logo"/></a>
+    </div>
+    {#    <a href="{{ url_for('creative_de') }}">Deutsch</a>#}
+    <a href="{% url 'offers/contemp' %}">Deutsch</a>
+    <a href="#menu">&#9776;</a>
+</header>
+
+<!-- Nav -->
+<nav id="menu">
+    <ul class="links">
+        <li><a href="{% url 'en/index' %}">Homepage</a></li>
+        <li><a href="{% url 'en/about' %}">About us</a></li>
+        <li><a href="{% url 'en/about' %}#teachers">Dance - & Balletteacher</a></li>
+        <li><a href="{% url 'en/offers' %}">Offers</a></li>
+        <li><a href="{% url 'en/pictures' %}">Gallery</a></li>
+        <li><a href="{% url 'en/prices' %}">Prices</a></li>
+        <li><a href="{% url 'en/contact' %}">Contact</a></li>
+        <li><a href="{% url 'en/press' %}">Press</a></li>
+    </ul>
+</nav>
+
+<!-- One -->
+<section id="One" class="wrapper style3">
+    <div class="inner">
+        <header class="align-center">
+            <h2 id="headerwhite">Contemporary Dance for adults</h2>
+        </header>
+    </div>
+</section>
+
+<section id="two" class="wrapper style2">
+    <div class="inner">
+        <div class="box">
+            <div class="content">
+                <header class="align-center">
+                    <p>A few informations</p>
+                    <h2>Contemporary Dance for adults</h2>
+                </header>
+                <p>The lessons are based on the spiral dynamics, which means that all movements develop from the natural
+                    structure of the body and muscles. As a result, supposedly complicated sequences turn out to be very
+                    simple. One focus is on soil techniques. Every single muscle is used! Furthermore, the Chladek©
+                    system is implemented in the classroom in order to develop a better sense of the body and thus
+                    already learned movements can be relearned, redeveloped and felt in a completely different way.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="container">
+        <ul class="icons">
+            <li><a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"
+                   rel="noopener noreferrer"><span class="label"></span></a></li>
+            <li><a href="https://instagram.com/ballettstudio_fantasia" target="_blank" class="fa fa-instagram"
+                   rel="noopener noreferrer"><span
+                    class="label"></span></a></li>
+            <li><a href="mailto:office@studiofantasia.at" target="_blank" class="fa fa-envelope-o"><span
+                    class="label"></span></a></li>
+        </ul>
+    </div>
+    <div class="copyright">
+        &copy; Tanzstudio Fantasia. All rights reserved.
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+<script src="{% static 'js/skel.min.js' %}"></script>
+<script src="{% static 'js/util.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

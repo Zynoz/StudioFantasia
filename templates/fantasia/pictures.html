@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="de">
+<head>
+    <title>Gallerie</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="height=device-height, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <style>
+        #photos {
+            /* Prevent vertical gaps */
+            line-height: 0;
+
+            -webkit-column-count: 5;
+            -webkit-column-gap: 0px;
+            -moz-column-count: 5;
+            -moz-column-gap: 0px;
+            column-count: 5;
+            column-gap: 0px;
+        }
+
+        #photos img {
+            /* Just in case there are inline attributes */
+            width: 100% !important;
+            height: auto !important;
+        }
+
+        @media (max-width: 1200px) {
+            #photos {
+                -moz-column-count: 4;
+                -webkit-column-count: 4;
+                column-count: 4;
+            }
+        }
+
+        @media (max-width: 1000px) {
+            #photos {
+                -moz-column-count: 3;
+                -webkit-column-count: 3;
+                column-count: 3;
+            }
+        }
+
+        @media (max-width: 800px) {
+            #photos {
+                -moz-column-count: 2;
+                -webkit-column-count: 2;
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 400px) {
+            #photos {
+                -moz-column-count: 1;
+                -webkit-column-count: 1;
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body class="subpage">
+
+
+<!-- Header -->
+<header id="header">
+    <div class="logo"><a href="{% url 'index' %}"><img
+            src="{% static 'images/logo_final_small.png' %}"
+            alt="studio fantasia logo"/></a>
+    </div>
+    <a href="{% url 'en/pictures' %}">English</a>
+    <a href="#menu">&#9776;</a>
+</header>
+
+<!-- Nav -->
+<nav id="menu">
+    <ul class="links">
+        <li><a href="{% url 'index' %}">Startseite</a></li>
+        <li><a href="{% url 'about' %}">Über uns</a></li>
+        <li><a href="{% url 'about' %}#teachers">Tanz - & Ballettlehrer</a></li>
+        <li><a href="{% url 'offers' %}">Angebote</a></li>
+        <li><a href="{% url 'pictures' %}">Galerie</a></li>
+        <li><a href="{% url 'prices' %}">Preise</a></li>
+        <li><a href="{% url 'contact' %}">Kontakt</a></li>
+        <li><a href="{% url 'press' %}">Presse</a></li>
+    </ul>
+</nav>
+
+<!-- One -->
+<section id="One" class="wrapper style3">
+    <div class="inner">
+        <header class="align-center">
+            <h2 id="headerwhite">Bilder</h2>
+        </header>
+    </div>
+</section>
+
+<section id="two" class="wrapper style2">
+    <section id="photos">
+
+        {% if pics %}
+            {% for pic in pics %}
+                <img src="media/{{ pic.img }}" alt="Published on {{ pic.pub_date }}">
+            {% endfor %}
+        {% else %}
+            <p>Es gibt noch keine Bilder</p>
+        {% endif %}
+
+    </section>
+</section>
+
+<footer id="footer">
+    <div class="container">
+        <ul class="icons">
+            <li><a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"
+                   rel="noopener noreferrer"><span class="label"></span></a></li>
+            <li><a href="https://instagram.com/ballettstudio_fantasia" target="_blank" class="fa fa-instagram"
+                   rel="noopener noreferrer"><span
+                    class="label"></span></a></li>
+            <li><a href="mailto:office@studiofantasia.at" target="_blank" class="fa fa-envelope-o"><span
+                    class="label"></span></a></li>
+        </ul>
+    </div>
+    <div class="copyright">
+        &copy; Tanzstudio Fantasia. Alle Rechte Vorbehalten.
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+<script src="{% static 'js/skel.min.js' %}"></script>
+<script src="{% static 'js/util.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+<script>
+    $(document).on('click', '[data-toggle="lightbox"]', function (event) {
+        event.preventDefault();
+        $(this).ekkoLightbox();
+    });
+</script>
+
+</body>
+<script>
+
+</script>
+</html>

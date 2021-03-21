@@ -8,20 +8,20 @@
     <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
     <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
-    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo_final_small.png' %}}"/>
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo_final_small.png' %}"/>
 
 </head>
 <body class="subpage">
 
 <!-- Header -->
 <header id="header">
-    {#    <div class="logo"><a href="{{ url_for('index_en') }}"><img#}
-    {#            src="{{ url_for('static', filename='images/logo_final_small.png') }}"#}
+    {#    <div class="logo"><a href="{% url_for('index_en') %}"><img#}
+    {#            src="{% url_for('static', filename='images/logo_final_small.png') %}"#}
     <div class="logo"><a href="{% url 'en/index' %}"><img
             src="{% static 'images/logo_final_small.png' %}"
             alt="studio fantasia logo"/></a>
     </div>
-    {#    <a href="{{ url_for('creative_de') }}">Deutsch</a>#}
+    {#    <a href="{% url_for('creative_de') %}">Deutsch</a>#}
     <a href="{% url 'about' %}">Deutsch</a>
     <a href="#menu">&#9776;</a>
 </header>
@@ -100,25 +100,25 @@
                     <div class="gallery">
                         <div>
                             <div class="image fit">
-                                <a href="{{ url_for('about_en_magdalena') }}"><img
-                                        src="{{ url_for('static', filename='images/magda1.jpg') }}"
+                                <a href="{% url 'en/about/magdalena' %}"><img
+                                        src="{% static 'images/magda1.jpg' %}"
                                         alt="Magdalena Calugaru Klaar"/></a>
                                 <div style="text-align: center;"><h3>Magdalena Calugaru Klaar</h3></div>
                             </div>
                         </div>
                         <div>
                             <div class="image fit">
-                                <a href="{{ url_for('about_en_isabella') }}"><img
-                                        src="{{ url_for('static', filename='images/isabella1.jfif') }}"
+                                <a href="{% url 'en/about/isabella' %}"><img
+                                        src="{% static 'images/isabella1.jfif' %}"
                                         alt="Isabella Klaar"/></a>
                                 <div style="text-align: center;"><h3>Isabella Klaar</h3></div>
                             </div>
                         </div>
                         <div>
                             <div class="image fit">
-                                <a href="{{ url_for('about_en_julia') }}"><img
-                                        src="{{ url_for('static', filename='images/julia1.jpg') }}"
-                                        alt="Julia Häuser"/></a>
+                                <<a href="{% url 'en/about/julia' %}"><img
+                                    src="{% static 'images/julia1.jpg' %}"
+                                    alt="Julia Häuser"/></a>
                                 <div style="text-align: center;"><h3>Julia Häuser</h3></div>
                             </div>
                         </div>

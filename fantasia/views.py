@@ -6,16 +6,16 @@ from django.http import HttpResponse
 from django.shortcuts import render
 
 from django_fantasia.settings import BASE_DIR
-from fantasia.models import Post, GalleryImage
+from fantasia.models import Post, GalleryImage, Message
 
 
 def index(request):
     # return render(request, 'index.html', corona=False, corona_text="Achtung!\n Neue Coronamaßnahmen")
-    context = {
-        'isCorona': False,
-        'message': None
+    banner = Message.objects.last()
+    content = {
+        'message': banner,
     }
-    return render(request, 'fantasia/index.html', context)
+    return render(request, 'fantasia/index.html', content)
 
 
 def about_de(request):
@@ -65,7 +65,6 @@ def pictures_de(request):
 
 def news_de(request):
     news_list = Post.objects.order_by('-pub_date')
-    print(news_list)
     context = {
         'posts': news_list,
     }
@@ -93,7 +92,11 @@ def offers_de_contemp(request):
 
 
 def index_en(request):
-    return render(request, 'fantasia/en/index.html')
+    banner = Message.objects.last()
+    content = {
+        'message': banner,
+    }
+    return render(request, 'fantasia/en/index.html', content)
 
 
 def classical_en(request):

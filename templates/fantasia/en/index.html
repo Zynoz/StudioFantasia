@@ -11,12 +11,56 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'images/logo_final_small.png' %}}"/>
 
 </head>
+
+<style>
+    .alert {
+        padding: 20px;
+        background-color: #f44336;
+        color: white;
+        opacity: 1;
+        transition: opacity 0.6s;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .alert.success {
+        background-color: #4CAF50;
+    }
+
+    .alert.info {
+        background-color: #2196F3;
+    }
+
+    .alert.warning {
+        background-color: #ff9800;
+    }
+
+    .closebtn {
+        margin-left: 15px;
+        color: white;
+        font-weight: bold;
+        float: right;
+        font-size: 22px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .closebtn:hover {
+        color: black;
+    }
+
+</style>
 <body style="background-color:#FCDBE6;">
 
 <!-- Header -->
 <header id="header">
-    {#    <div class="logo"><a href="{{ url_for('index_en') }}"><img#}
-    {#            src="{{ url_for('static', filename='images/logo_final_small.png') }}"#}
+    {% if msg is not none %}
+        <div class="alert {{ msg.type }}">
+            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong>{{ msg.title }}:</strong> {{ msg.text }}
+        </div>
+    {% endif %}
     <div class="logo"><a href="{% url 'en/index' %}"><img
             src="{% static 'images/logo_final_small.png' %}"
             alt="studio fantasia logo"/></a>
@@ -36,7 +80,7 @@
         <li><a href="{% url 'en/pictures' %}">Gallery</a></li>
         <li><a href="{% url 'en/prices' %}">Prices</a></li>
         <li><a href="{% url 'en/contact' %}">Contact</a></li>
-        <li><a href="{% url 'en/press' %}">Press</a></li>
+        <li><a href="{% url 'en/news' %}">News</a></li>
     </ul>
 </nav>
 
@@ -93,13 +137,6 @@
 
 <!-- One -->
 <section id="one" class="wrapper style2">
-    {% if corona == True %}
-        <div class="alert sticky">
-            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <div style="text-align: center;">Corona News:</div>
-            <div style="text-align: center;">{{ corona_text }}</div>
-        </div>
-    {% endif %}
     <div class="inner">
         <div class="grid-style">
             <div>
@@ -141,6 +178,14 @@
         </div>
     </div>
 </section>
+
+{% if content is not None %}
+    <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        <div style="text-align: center;">Corona News:</div>
+        <div style="text-align: center;">{{ corona_text }}</div>
+    </div>
+{% endif %}
 
 <!-- Two -->
 <section id="two" class="wrapper style3">

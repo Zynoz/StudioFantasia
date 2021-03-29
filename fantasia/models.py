@@ -26,9 +26,18 @@ class GalleryImage(models.Model):
             return mark_safe('<img src="{}" width="300" height="300" />'.format(self.img.url))
         return ""
 
+
 class Message(models.Model):
+    TYPE_CHOICES = (
+        ('danger', 'danger'),
+        ('warning', 'warning'),
+        ('info', 'info'),
+        ('success', 'success'),
+    )
+
+    type = models.CharField(max_length=7, choices=TYPE_CHOICES, default='info')
     title = models.CharField(max_length=30)
-    content = models.CharField(max_length=500)
+    text = models.CharField(max_length=500)
 
     def __str__(self):
-        return self.title + ": " + self.content
+        return "[" + self.type + "] " + self.title + ": " + self.text

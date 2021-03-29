@@ -5,17 +5,21 @@ from PIL import Image
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from django_fantasia.settings import BASE_DIR
 from fantasia.models import Post, GalleryImage, Message
 
 
 def index(request):
-    # return render(request, 'index.html', corona=False, corona_text="Achtung!\n Neue Coronamaßnahmen")
-    banner = Message.objects.last()
-    content = {
-        'message': banner,
-    }
-    return render(request, 'fantasia/index.html', content)
+    message = Message.objects.last()
+
+    if message is not None:
+        msg = {
+            'msg': message,
+        }
+        print(msg)
+    else:
+        msg = None
+        print('No content')
+    return render(request, 'fantasia/index.html', msg)
 
 
 def about_de(request):
@@ -92,11 +96,17 @@ def offers_de_contemp(request):
 
 
 def index_en(request):
-    banner = Message.objects.last()
-    content = {
-        'message': banner,
-    }
-    return render(request, 'fantasia/en/index.html', content)
+    message = Message.objects.last()
+
+    if message is not None:
+        msg = {
+            'msg': message,
+        }
+        print(msg)
+    else:
+        msg = None
+        print('No content')
+    return render(request, 'fantasia/en/index.html', msg)
 
 
 def classical_en(request):

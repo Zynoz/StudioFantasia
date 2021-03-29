@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from fantasia.models import Post, GalleryImage
+from fantasia.models import Post, GalleryImage, Message
 
 
 # @admin.register(GalleryImage)
@@ -16,3 +16,4 @@ class GalleryAdmin(admin.ModelAdmin):
 
 admin.site.register(Post)
 admin.site.register(GalleryImage)
+admin.site.register(Message)

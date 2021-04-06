@@ -3,13 +3,21 @@ from django.utils.safestring import mark_safe
 
 
 class Post(models.Model):
-    title = models.CharField(max_length=30)
-    content = models.CharField(max_length=10000)
+    title_de = models.CharField(max_length=30)
+    title_en = models.CharField(max_length=30)
+    content_de = models.CharField(max_length=10000)
+    content_en = models.CharField(max_length=10000)
     pub_date = models.DateField('date published')
     image = models.ImageField(upload_to='postimages/', blank=True, null=True)
 
     def __str__(self):
-        return self.title + ": " + self.content
+        return self.title_de + ": " + self.content_de
+
+    def image_tag(self):
+        from django.utils.html import mark_safe
+        return mark_safe('<img src="%s" width="100px" height="100px" />' % self.image.url)
+
+    image_tag.short_description = 'Image'
 
 
 class GalleryImage(models.Model):
@@ -20,24 +28,26 @@ class GalleryImage(models.Model):
     def __str__(self):
         return self.title
 
-    @property
-    def thumbnail_preview(self):
-        if self.img:
-            return mark_safe('<img src="{}" width="300" height="300" />'.format(self.img.url))
-        return ""
+    def image_tag(self):
+        from django.utils.html import mark_safe
+        return mark_safe('<img src="%s" width="100px" height="100px" />' % self.img.url)
+
+    image_tag.short_description = 'Image'
 
 
 class Message(models.Model):
     TYPE_CHOICES = (
-        ('danger', 'danger'),
-        ('warning', 'warning'),
-        ('info', 'info'),
-        ('success', 'success'),
+        ('danger', 'Danger'),
+        ('warning', 'Warning'),
+        ('info', 'Info'),
+        ('success', 'Success'),
     )
 
-    type = models.CharField(max_length=7, choices=TYPE_CHOICES, default='info')
-    title = models.CharField(max_length=30)
-    text = models.CharField(max_length=500)
+    type = models.CharField(max_length=7, choices=TYPE_CHOICES, default='Info')
+    title_de = models.CharField(max_length=30)
+    title_en = models.CharField(max_length=30)
+    text_de = models.CharField(max_length=500)
+    text_en = models.CharField(max_length=500)
 
     def __str__(self):
-        return "[" + self.type + "] " + self.title + ": " + self.text
+        return "[" + self.type + "] " + self.title_de + ": " + self.text_de

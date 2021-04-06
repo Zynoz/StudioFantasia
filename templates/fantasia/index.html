@@ -57,7 +57,7 @@
     {% if msg is not none %}
         <div class="alert {{ msg.type }}">
             <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-            <strong>{{ msg.title }}:</strong> {{ msg.text }}
+            <strong>{{ msg.title_de }}:</strong> {{ msg.text_de }}
         </div>
     {% endif %}
     <div class="logo"><a href="{% url 'index' %}"><img

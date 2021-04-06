@@ -2,8 +2,7 @@ import os
 import pathlib
 
 from PIL import Image
-from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from fantasia.models import Post, GalleryImage, Message
 
@@ -135,7 +134,11 @@ def pictures_en(request):
 
 
 def news_en(request):
-    return render(request, 'fantasia/en/news.html')
+    news_list = Post.objects.order_by('-pub_date')
+    context = {
+        'posts': news_list,
+    }
+    return render(request, 'fantasia/en/news.html', context)
 
 
 def about_en(request):
@@ -176,6 +179,10 @@ def offers_en_contemp(request):
 
 def contact_en(request):
     return render(request, 'fantasia/en/contact.html')
+
+
+def view_404(request, exception=None):
+    return redirect('/')
 
 
 def resize(pic):

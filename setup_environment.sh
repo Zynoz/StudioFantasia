@@ -73,14 +73,15 @@ sudo rm /home/ubuntu/studio/gunicorn.access.log
 sudo rm /home/ubuntu/studio/gunicorn.error.log
 
 blue "Opening up Firewall"
+sudo apt install ufw -y
+sudo ufw enable
 sudo ufw allow 443
 sudo ufw allow 80
-sudo deny 8000
+sudo ufw allow 22
 
 #grep -qxF 'SECRET_KEY=""' ~/.profile || echo 'DJANGO_DEBUG=False' >>~/.profile
 
 blue "Installing dependencies"
-sudo pip3 uninstall -r requirements.txt -y
 sudo apt-get install libjpeg-dev zlib1g-dev -y
 sudo apt-get install software-properties-common -y
 sudo add-apt-repository ppa:deadsnakes/ppa -y
@@ -97,7 +98,7 @@ echo "If you can see me, then please contact the server administrator <a href=\"
 sudo mkdir /home/ubuntu/studio/media
 sudo mkdir /home/ubuntu/studio/media/gallery
 sudo mkdir /home/ubuntu/studio/media/postimages
-chown -R ubuntu:ubuntu /home/ubuntu/studio/media
+chown -R ubuntu:ubuntu /home/ubuntu/studio
 
 blue "Creating Fantasia Service"
 echo '[Unit]
@@ -182,13 +183,13 @@ blue "Creating database"
 python3 manage.py makemigrations fantasia
 python3 manage.py sqlmigrate fantasia 0001
 python3 manage.py migrate
-sudo chown ubuntu db.sqlite3
+chown -R ubuntu:ubuntu /home/ubuntu/studio
 
 blue "Creating superuser"
 echo "from django.contrib.auth.models import User; User.objects.create_superuser('$uname', '$uemail', '$upassword')" | python3 manage.py shell
 blue "Super User created with username $uname"
 
-blue "Starting Fantasia Service"
+blue "Starting Fantasia Services"
 sudo systemctl start fantasia
 sudo systemctl enable fantasia
 sudo systemctl status fantasia

@@ -1,20 +1,40 @@
-FROM python:3.9.2
+FROM python:3.8
 
-#WORKDIR /usr/src/django_fantasia
+RUN apt-get update && apt-get install nginx-full vim -y --no-install-recommends
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONBUFFERED 1
+RUN mkdir -p /opt/app
+RUN mkdir -p /opt/app/pip_cache
+RUN mkdir -p /opt/app/studio
+RUN mkdir -p /opt/app/studio/static
+RUN mkdir -p /opt/app/studio/media
 
-RUN pip install --upgrade pip
-COPY ./requirements.txt .
+COPY requirements.txt /opt/app/
+COPY start-server.sh /opt/app/
+COPY studio /opt/app/studio/
+WORKDIR /opt/app
+
 RUN pip install -r requirements.txt
+RUN chown -R www-data:www-data /opt/app
+RUN apt-get install libjpeg-dev zlib1g-dev -y
+RUN apt-get install software-properties-common -y
+RUN add-apt-repository ppa:deadsnakes/ppa -y
+RUN add-apt-repository ppa:certbot/certbot -y
+RUN apt install certbot python3-certbot-nginx -y
 
-COPY django_fantasia .
-COPY fantasia .
-COPY media .
-COPY templates .
-COPY manage.py .
+RUN python3 studio/manage.py collectstatic --noinput
+RUN python3 studio/manage.py makemigrations fantasia
+RUN python3 studio/manage.py sqlmigrate fantasia 0001
+RUN python3 studio/manage.py migrate
+RUN chmod 664 studio/db.sqlite3
 
-EXPOSE 8000
+COPY nginx.default /etc/nginx/sites-available/default
+RUN ln -sf /dev/stdout /var/log/nginx/access.log \
+    && ln -sf /dev/stderr /var/log/nginx/error.log
 
-CMD ['gunicorn --bind 0.0.0.0:8000 django_fantasia.wsgi:application']
+RUN ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+RUN service nginx restart
+
+EXPOSE 443
+EXPOSE 8020
+STOPSIGNAL SIGTERM
+ENTRYPOINT ["bash", "/opt/app/start-server.sh"]

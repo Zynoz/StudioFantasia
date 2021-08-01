@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>News</title>
+    <meta charset="utf-8"/>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo_final_small.png' %}}"/>
+</head>
+<body style="background-color:#FCDBE6;">
+
+<!-- Header -->
+<header id="header">
+    <div class="logo"><a href="{% url 'index' %}"><img
+            src="{% static 'images/logo_final_small.png' %}"
+            alt="studio fantasia logo"/></a>
+    </div>
+
+    <a href="{% url 'news' %}">Deutsch</a>
+    <a href="#menu">&#9776;</a>
+</header>
+<!-- Nav -->
+<nav id="menu">
+
+    <ul class="links">
+        <li><a href="{% url 'en/index' %}">Homepage</a></li>
+        <li><a href="{% url 'en/about' %}">About us</a></li>
+        <li><a href="{% url 'en/about' %}#teachers">Dance - & Balletteacher</a></li>
+        <li><a href="{% url 'en/offers' %}">Offers</a></li>
+        <li><a href="{% url 'en/pictures' %}">Gallery</a></li>
+        <li><a href="{% url 'en/prices' %}">Prices</a></li>
+        <li><a href="{% url 'en/contact' %}">Contact</a></li>
+        <li><a href="{% url 'en/news' %}">News</a></li>
+    </ul>
+</nav>
+
+<section id="One" class="wrapper style3">
+    <div class="inner">
+        <header class="align-center">
+            <h2 id="headerwhite">News</h2>
+        </header>
+    </div>
+</section>
+
+<!-- Banner -->
+<section id="one" class="wrapper style2">
+    <div class="inner">
+        {% if posts %}
+            {% for post in posts %}
+                <div class="gallery">
+                    <div class="image fit">
+                        <article>
+                            {% if post.url %}
+                                <h2><a href="{{ post.url }}">{{ post.title_en }}</a></h2>
+                            {% else %}
+                                <h2>{{ post.title_en }}</h2>
+                            {% endif %}
+                            <p>{{ post.content_en }}</p>
+                            {% if post.image %}
+                                <img src="{{ post.image.url }}" alt="{{ post.title_en }}">
+                            {% endif %}
+                            <p style="font-size: xx-small">Published on {{ post.pub_date }}</p>
+                        </article>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No articles available yet.</p>
+        {% endif %}
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="container">
+        <ul class="icons">
+            <li><a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"
+                   rel="noopener noreferrer"><span class="label"></span></a></li>
+            <li><a href="https://instagram.com/ballettstudio_fantasia" target="_blank" class="fa fa-instagram"
+                   rel="noopener noreferrer"><span
+                    class="label"></span></a></li>
+            <li><a href="mailto:office@studiofantasia.at" target="_blank" class="fa fa-envelope-o"><span
+                    class="label"></span></a></li>
+        </ul>
+    </div>
+    <div class="copyright">
+        &copy; Tanzstudio Fantasia. All rights reserved.
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+<script src="{% static 'js/skel.min.js' %}"></script>
+<script src="{% static 'js/util.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

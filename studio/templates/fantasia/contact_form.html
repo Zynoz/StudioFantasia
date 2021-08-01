@@ -1,0 +1,137 @@
+<!DOCTYPE HTML>awesome.min.css
+<html lang="de">
+<head>
+    <title>Preise</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/font-awesome.min.css') }}">
+</head>
+<body class="subpage">
+
+<!-- Header -->
+<header id="header">
+    <div class="logo"><a href="{{ url_for('index_de') }}"><img
+            src="{{ url_for('static', filename='images/logo_final_small.png') }}"
+            alt="studio fantasia logo"/></a>
+    </div>
+    <a href="#menu">Menu</a>
+</header>
+
+<!-- Nav -->
+<nav id="menu">
+    <ul class="links">
+        <li><a href="{{ url_for('index_de') }}">Startseite</a></li>
+        <li><a href="{{ url_for('about_de') }}">Über uns</a></li>
+        <li><a href="{{ url_for('about_de') }}#teachers">Tanz - & Ballettlehrer</a></li>
+        <li><a href="{{ url_for('offers_de') }}">Angebote</a></li>
+        <li><a href="{{ url_for('pictures_de') }}">Galerie</a></li>
+        <li><a href="{{ url_for('prices_de') }}">Preise</a></li>
+        <li><a href="{{ url_for('contact_de') }}">Kontakt</a></li>
+        <li><a href="{{ url_for('press_de') }}">Presse</a></li>
+    </ul>
+</nav>
+
+<!-- One -->
+<section id="One" class="wrapper style3">
+    <div class="inner">
+        <header class="align-center">
+            <h2 id="headerwhite">Kontaktieren Sie uns</h2>
+        </header>
+    </div>
+</section>
+
+<section id="two" class="wrapper style2">
+    <div class="inner">
+        <div class="box">
+            <div class="content">
+                <form method="post">
+                    <div class="row uniform">
+                        <div class="6u 12u$(xsmall)">
+                            <input type="text" name="name" id="name" value="" placeholder="Name"/>
+                        </div>
+                        <div class="6u$ 12u$(xsmall)">
+                            <input type="email" name="email" id="email" value="" placeholder="Email"/>
+                        </div>
+                        <!-- Break -->
+                        <div class="12u$">
+                            <div class="select-wrapper">
+                                <select name="category" id="category">
+                                    <option value="">- Kontaktgrund -</option>
+                                    <option value="register">Anmeldung</option>
+                                    <option value="classical">Klassisches Ballett</option>
+                                    <option value="creative">Kreatives Ballett</option>
+                                    <option value="offers">Angebote</option>
+                                    <option value="price">Preisanfrage</option>
+                                    <option value="other">Sonstiges</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Break -->
+                        <!--                        <div class="4u 12u$(small)">-->
+                        <!--                            <input type="radio" id="priority-low" name="priority" checked>-->
+                        <!--                            <label for="priority-low">Low Priority</label>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="4u 12u$(small)">-->
+                        <!--                            <input type="radio" id="priority-normal" name="priority">-->
+                        <!--                            <label for="priority-normal">Normal Priority</label>-->
+                        <!--                        </div>-->
+                        <!--                        <div class="4u$ 12u$(small)">-->
+                        <!--                            <input type="radio" id="priority-high" name="priority">-->
+                        <!--                            <label for="priority-high">High Priority</label>-->
+                        <!--                        </div>-->
+                        <!-- Break -->
+                        <div class="12u$">
+                            <textarea name="message" id="message" placeholder="Enter your message" rows="5"
+                                      cols="150"></textarea>
+                        </div>
+                        <!-- Break -->
+                        <!--                        <div class="6u 12u$(small)">-->
+                        <!--                            <input type="checkbox" id="copy" name="copy">-->
+                        <!--                            <label for="copy">Email me a copy of this message</label>-->
+                        <!--                        </div>-->
+                        <div class="6u$ 12u$(small)">
+                            <input type="checkbox" id="human" name="human">
+                            <label for="human">I am a human and not a robot</label>
+                        </div>
+                        <!-- Break -->
+                        <div class="12u$">
+                            <ul class="actions">
+                                <li><input type="submit" value="Send Message"/></li>
+                                <li><input type="reset" value="Reset" class="alt"/></li>
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="container">
+        <ul class="icons">
+            <li><a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"
+                   rel="noopener noreferrer"><span class="label"></span></a></li>
+            <li><a href="https://instagram.com/ballettstudio_fantasia" target="_blank" class="fa fa-instagram"
+                   rel="noopener noreferrer"><span
+                    class="label"></span></a></li>
+            <li><a href="mailto:office@studiofantasia.at" target="_blank" class="fa fa-envelope-o"><span
+                    class="label"></span></a></li>
+        </ul>
+    </div>
+    <div class="copyright">
+        &copy; Tanzstudio Fantasia. Alle Rechte Vorbehalten.
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/jquery.scrollex.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/skel.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/util.js') }}"></script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

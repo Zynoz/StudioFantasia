@@ -1,0 +1,162 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="de">
+<head>
+    <title>Über Isabella</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo_final_small.png' %}}"/>
+</head>
+<body class="subpage">
+
+<!-- Header -->
+<header id="header">
+    <div class="logo"><a href="{% url 'index' %}"><img
+            src="{% static 'images/logo_final_small.png' %}"
+            alt="studio fantasia logo"/></a>
+    </div>
+
+    <a href="{% url 'en/about/isabella' %}">English</a>
+    <a href="#menu">&#9776;</a>
+</header>
+<!-- Nav -->
+<nav id="menu">
+
+    <ul class="links">
+        <li><a href="{% url 'index' %}">Startseite</a></li>
+        <li><a href="{% url 'about' %}">Über uns</a></li>
+        <li><a href="{% url 'about' %}#teachers">Tanz - & Ballettlehrer</a></li>
+        <li><a href="{% url 'offers' %}">Angebote</a></li>
+        <li><a href="{% url 'pictures' %}">Galerie</a></li>
+        <li><a href="{% url 'prices' %}">Preise</a></li>
+        <li><a href="{% url 'contact' %}">Kontakt</a></li>
+        <li><a href="{% url 'news' %}">Neuigkeiten</a></li>
+    </ul>
+</nav>
+
+<!-- One -->
+<section id="One" class="wrapper style3">
+    <div class="inner">
+        <header class="align-center">
+            <p>Ein paar Informationen</p>
+            <h2 id="headerwhite">Über Isabella</h2>
+        </header>
+    </div>
+</section>
+
+<section id="two" class="wrapper style3">
+    <div class="inner">
+        <div class="box">
+            <div class="content">
+                <header class="align-center">
+                    <h2>Über Mich</h2>
+                </header>
+                <p>Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text
+                    über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein
+                    kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier
+                    steht ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über
+                    mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer
+                    Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht
+                    ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über
+                    mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer
+                    Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht
+                    ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über
+                    mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer
+                    Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht
+                    ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über
+                    mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer
+                    Text über mich.Hier steht ein kurzer Text über mich.Hier steht ein kurzer Text über mich.Hier steht
+                    ein kurzer Text über mich.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="four" class="wrapper style3">
+    <div class="inner">
+        <div class="box">
+            <div class="content">
+                <header class="align-center">
+                    <h2>Bilder</h2>
+                </header>
+                <div class="inner">
+                    <div class="gallery">
+                        <div>
+                            <div class="image fit">
+                                {#                                <img src="{{ url_for('static', filename='images/isabella1.jfif') }}" alt="Isabella Klaar"/>#}
+                                <img src="{% static 'images/isabella1.jfif' %}" alt="Isabella Klaar"/>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                {#                                <img src="{{ url_for('static', filename='images/isabella2.jpg') }}" alt="Isabella Klaar"/>#}
+                                <img src="{% static 'images/isabella2.jpg' %}" alt="Isabella Klaar"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Two -->
+<section id="three" class="wrapper style3">
+    <div class="inner">
+        <div class="box">
+            <div class="content">
+                <header class="align-center">
+                    <h2>Meine Ausblidung und beruflicher Werdegang</h2>
+                </header>
+                <p>
+                <ul>
+                    <li><b>2003 - 2007</b> Volksschule Donaucity</li>
+                    <li><b>2007 - 2010</b> Sacre Coeur Wien</li>
+                    <li><b>2010 - 2012</b> AHS Contiweg</li>
+                    <li><b>2012 - 2016</b> AHS Polgarstraße</li>
+                    <li><b>Seit 2017</b> Transkulturelle Kommunikation an der UniWien</li>
+                    <li><b>2001- 2016</b> Klassische Ballett Ausbildung im Ballettstudio Fantasia</li>
+                    <br>
+                    <li><b>2001 -2016</b> Aufführungen im Ballettstudio Fantasia</li>
+                    <li><b>2005-2007</b> Irish Dance im Irish Dance Center Vienna Irish Dance contest 2007 Vienna 3
+                        platz
+                    </li>
+                    <li><b>2007</b> Rollen bei Teleshopping Austria</li>
+                    <li><b>2008</b> Rollen in der ORF Fernsehproduktion „Helmi“</li>
+                    <li><b>Seit 2017</b> Berufsbegleitende Ausbildung für Bewegungs- und Tanzpädagogik im Chladek®System
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="container">
+        <ul class="icons">
+            <li><a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"
+                   rel="noopener noreferrer"><span class="label"></span></a></li>
+            <li><a href="https://instagram.com/ballettstudio_fantasia" target="_blank" class="fa fa-instagram"
+                   rel="noopener noreferrer"><span
+                    class="label"></span></a></li>
+            <li><a href="mailto:office@studiofantasia.at" target="_blank" class="fa fa-envelope-o"><span
+                    class="label"></span></a></li>
+        </ul>
+    </div>
+    <div class="copyright">
+        &copy; Tanzstudio Fantasia. Alle Rechte Vorbehalten.
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+<script src="{% static 'js/skel.min.js' %}"></script>
+<script src="{% static 'js/util.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

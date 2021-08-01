@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="de">
+<head>
+    <title>Über uns</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo_final_small.png' %}}"/>
+</head>
+<body class="subpage">
+
+<!-- Header -->
+<header id="header">
+    <div class="logo"><a href="{% url 'index' %}"><img
+            src="{% static 'images/logo_final_small.png' %}"
+            alt="studio fantasia logo"/></a>
+    </div>
+
+    <a href="{% url 'en/about' %}">English</a>
+    <a href="#menu">&#9776;</a>
+</header>
+<!-- Nav -->
+<nav id="menu">
+
+    <ul class="links">
+        <li><a href="{% url 'index' %}">Startseite</a></li>
+        <li><a href="{% url 'about' %}">Über uns</a></li>
+        <li><a href="{% url 'about' %}#teachers">Tanz - & Ballettlehrer</a></li>
+        <li><a href="{% url 'offers' %}">Angebote</a></li>
+        <li><a href="{% url 'pictures' %}">Galerie</a></li>
+        <li><a href="{% url 'prices' %}">Preise</a></li>
+        <li><a href="{% url 'contact' %}">Kontakt</a></li>
+        <li><a href="{% url 'news' %}">Neuigkeiten</a></li>
+    </ul>
+</nav>
+
+<!-- One -->
+<section id="One" class="wrapper style3">
+    <div class="inner">
+        <header class="align-center">
+            <p>Ein paar Informationen</p>
+            <h2 id="headerwhite">Über uns</h2>
+        </header>
+    </div>
+</section>
+
+<section id="two" class="wrapper style2">
+    <div class="inner">
+        <div class="box">
+            <div class="content">
+                <header class="align-center">
+                    <h2>Der Unterricht</h2>
+                </header>
+                <p class="align-center">Wir nehmen uns Zeit für die individuellen Bedürfnisse unserer KursteilnehmerInnen. Darum unterrichten
+                    wir ausschließlich in kleinen Gruppen von maximal sechs Kindern.</p>
+
+                <p class="align-center">Auf Leistungsdruck verzichten wir bewusst. Unsere TänzerInnen lernen auf spielerische Weise die
+                    notwendige Konzentration und Disziplin kennen und verstehen. Das bedarf mehr Geduld und Aufwand,
+                    aber es lohnt sich!</p>
+
+                <p class="align-center">Wir sind stolz auf das Können unserer TänzerInnen und wollen, dass sie ihre Fortschritte und Erfolge
+                    einem breiten Publikum zeigen können. Darum veranstalten wir regelmäßig Aufführungen.</p>
+            </div>
+            <div class="content">
+                <header class="align-center">
+                    <h2>Das Studio</h2>
+                </header>
+                <p class="align-center">Nachdem wir 8 Jahre lang im kleinen, feinen Studio in der Afritschgasse beheimatet waren,
+                    übersiedelten wir im Herbst 2008 in unser neues Studio in der Wagramer Strasse 118.
+
+                    Wir bedanken uns bei allen Tänzern und Tänzerinnen, bei Freunden
+                    und Interessenten für ihr Kommen, Mitmachen und Bleiben!
+
+                    Am Rande von Wien gelegen, ist das Studio mit Auto, U-Bahn und Bus gut erreichbar.
+                    U-Bahn: U1, Station Kagraner Platz Buslinie: 94A, Station Steigenteschgasse</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="teachers" class="wrapper style2">
+    <div class="inner">
+        <div class="box">
+            <div class="content">
+                <header class="align-center">
+                    <h2>Das Team</h2>
+                </header>
+                <div class="inner">
+                    <div class="gallery">
+                        <div>
+                            <div class="image fit">
+                                <a href="{% url 'about/magdalena' %}"><img
+                                        src="{% static 'images/magda1.jpg' %}"
+                                        alt="Magdalena Calugaru Klaar"/></a>
+                                <div style="text-align: center;"><h3>Magdalena Calugaru Klaar</h3></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="{% url 'about/isabella' %}"><img
+                                        src="{% static 'images/isabella1.jfif' %}"
+                                        alt="Isabella Klaar"/></a>
+                                <div style="text-align: center;"><h3>Isabella Klaar</h3></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="image fit">
+                                <a href="{% url 'about/julia' %}"><img
+                                    src="{% static 'images/julia1.jpg' %}"
+                                    alt="Julia Häuser"/></a>
+                                <div style="text-align: center;"><h3>Julia Häuser</h3></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="container">
+        <ul class="icons">
+            <li><a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"
+                   rel="noopener noreferrer"><span class="label"></span></a></li>
+            <li><a href="https://instagram.com/ballettstudio_fantasia" target="_blank" class="fa fa-instagram"
+                   rel="noopener noreferrer"><span
+                    class="label"></span></a></li>
+            <li><a href="mailto:office@studiofantasia.at" target="_blank" class="fa fa-envelope-o"><span
+                    class="label"></span></a></li>
+        </ul>
+    </div>
+    <div class="copyright">
+        &copy; Tanzstudio Fantasia. Alle Rechte Vorbehalten.
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+<script src="{% static 'js/skel.min.js' %}"></script>
+<script src="{% static 'js/util.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

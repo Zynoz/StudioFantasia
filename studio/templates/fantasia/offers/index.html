@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html lang="de">
+<head>
+    <title>Angebote</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/logo_final_small.png' %}}"/>
+</head>
+<body class="subpage">
+
+<!-- Header -->
+<header id="header">
+    <div class="logo"><a href="{% url 'index' %}"><img
+            src="{% static 'images/logo_final_small.png' %}"
+            alt="studio fantasia logo"/></a>
+    </div>
+    <a href="{% url 'en/offers' %}">English</a>
+    <a href="#menu">&#9776;</a>
+</header>
+<!-- Nav -->
+<nav id="menu">
+
+    <ul class="links">
+        <li><a href="{% url 'index' %}">Startseite</a></li>
+        <li><a href="{% url 'about' %}">Über uns</a></li>
+        <li><a href="{% url 'about' %}#teachers">Tanz - & Ballettlehrer</a></li>
+        <li><a href="{% url 'offers' %}">Angebote</a></li>
+        <li><a href="{% url 'pictures' %}">Galerie</a></li>
+        <li><a href="{% url 'prices' %}">Preise</a></li>
+        <li><a href="{% url 'contact' %}">Kontakt</a></li>
+        <li><a href="{% url 'news' %}">Neuigkeiten</a></li>
+    </ul>
+</nav>
+
+<!-- One -->
+<section id="intro" class="wrapper style3">
+    <div class="inner">
+        <header class="align-center">
+            <h2 id="headerwhite">Angebote</h2>
+        </header>
+    </div>
+</section>
+
+<!-- Three -->
+<section id="offers" class="wrapper style2">
+    <div class="inner">
+        <header class="align-center">
+            <h2>Unsere aktuellen Angebote</h2>
+        </header>
+        <div class="gallery">
+            <div>
+                <div class="image fit">
+                    {#                    <a href="{{ url_for('offers_de_contemp') }}"><img#}
+                    {#                            src="{{ url_for('static', filename='images/contemporary.jpg') }}"#}
+                    <a href="{% url 'offers/contemp' %}"><img
+                            src="{% static 'images/contemporary.jpg' %}"
+                            alt="contemporary"/></a>
+                    <center><h3>ZEITGENÖSSISCHER TANZ FÜR ERWACHSENE</h3></center>
+                </div>
+            </div>
+            <div>
+                <div class="image fit">
+                    {#                    <a href="{{ url_for('offers_de_fitfun') }}"><img#}
+                    <a href="{% url 'offers/fitfun' %}"><img
+                            src="{% static 'images/fit_with_fun.JPG' %}"
+                            alt="fit and fun gymnastics"/></a>
+                    <center><h3>FIT MIT SPASS - GYMNASTIK FÜR FRAUEN</h3></center>
+                </div>
+            </div>
+            <div>
+                <div class="image fit">
+                    {#                    <a href="{{ url_for('offers_de_choreo') }}"><img#}
+                    {#                            src="{{ url_for('static', filename='images/choreografy.jpg') }}"#}
+                    <a href="{% url 'offers/choreo' %}"><img
+                            src="{% static 'images/choreography.jpg' %}"
+                            alt="choreography"/></a>
+                    <center><h3>CHOREOGRAFIE</h3></center>
+                </div>
+            </div>
+            <div>
+                <div class="image fit">
+                    {#                    <a href="{{ url_for('offers_de_workout') }}"><img#}
+                    {#                            src="{{ url_for('static', filename='images/workout.JPG') }}"#}
+                    <a href="{% url 'offers/workout' %}"><img
+                            src="{% static 'images/workout.JPG' %}"
+                            alt="ballet workout"/></a>
+                    <center><h3>BALLETT WORKOUT</h3></center>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer id="footer">
+    <div class="container">
+        <ul class="icons">
+            <li><a href="https://www.facebook.com" target="_blank" class="fa fa-facebook"
+                   rel="noopener noreferrer"><span class="label"></span></a></li>
+            <li><a href="https://instagram.com/ballettstudio_fantasia" target="_blank" class="fa fa-instagram"
+                   rel="noopener noreferrer"><span
+                    class="label"></span></a></li>
+            <li><a href="mailto:office@studiofantasia.at" target="_blank" class="fa fa-envelope-o"><span
+                    class="label"></span></a></li>
+        </ul>
+    </div>
+    <div class="copyright">
+        &copy; Tanzstudio Fantasia. Alle Rechte Vorbehalten.
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/jquery.scrollex.min.js' %}"></script>
+<script src="{% static 'js/skel.min.js' %}"></script>
+<script src="{% static 'js/util.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+server {
+    listen 8020;
+    server_name $domain www.$domain;
+
+    location /media/ {
+        autoindex on;
+        alias /opt/app/studio/media/;
+    }
+
+#    error_page 500 502 503 504 /50x.html;
+#    location = /50x.html {
+#      root /usr/share/nginx/html/;
+#    }
+
+#    error_page 404 =200 /index.html;
+
+    # Disable favicon.ico logging
+    location = /favicon.ico {
+        log_not_found off;
+        access_log off;
+    }
+
+    # Allow robots and disable logging
+    location = /robots.txt {
+        allow all;
+        log_not_found off;
+        access_log off;
+    }
+
+    location /static {
+        autoindex on;
+        alias /opt/app/studio/static/;
+    }
+
+    # Disable static content logging and set cache time to max
+#    location ~* \.(jpg|jpeg|gif|png|css|js|ico|xml)$ {
+#        access_log off;
+#        log_not_found off;
+#        expires max;
+#    }
+
+    # Deny access to htaccess and htpasswd files
+#    location ~ /\.ht {
+#        deny  all;
+#    }
+
+    # Deny access to hidden files (beginning with a period)
+#    location ~ /\. {
+#        access_log off; log_not_found off; deny all;
+#    }
+
+    location / {
+        include proxy_params;
+        proxy_pass http://0.0.0.0:8010;
+#        proxy_set_header Host $host;
+#        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    }
+}

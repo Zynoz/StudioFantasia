@@ -1,10 +1,11 @@
 server {
     listen 8020;
-    server_name $domain www.$domain;
+#   server_name $domain www.$domain;
 
     location /media/ {
-        autoindex on;
-        alias /opt/app/studio/media/;
+        autoindex off;
+#        alias /opt/storage/media/;
+        alias /opt/storage;
     }
 
 #    error_page 500 502 503 504 /50x.html;
@@ -28,7 +29,7 @@ server {
     }
 
     location /static {
-        autoindex on;
+        autoindex off;
         alias /opt/app/studio/static/;
     }
 

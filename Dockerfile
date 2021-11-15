@@ -3,7 +3,7 @@ FROM python:3.8
 RUN apt-get update && apt-get install nginx-full vim -y --no-install-recommends
 
 RUN mkdir -p /opt/app
-RUN mkdir -p /opt/app/storage
+RUN mkdir -p /opt/storage
 RUN mkdir -p /opt/app/pip_cache
 RUN mkdir -p /opt/app/studio
 RUN mkdir -p /opt/app/studio/static
@@ -27,6 +27,7 @@ RUN python3 studio/manage.py collectstatic --noinput
 RUN python3 studio/manage.py makemigrations fantasia
 RUN python3 studio/manage.py sqlmigrate fantasia 0001
 RUN python3 studio/manage.py migrate --run-syncdb
+
 #RUN touch /opt/storage/studio.sqlite3
 #RUN chmod 664 /opt/app/storage/studio.sqlite3
 #RUN chmod 664 /opt/app/studio/studio.sqlite3

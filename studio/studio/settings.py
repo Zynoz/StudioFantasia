@@ -35,7 +35,7 @@ ALLOWED_HOSTS = ['*']
 MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_ROOT = os.path.join(STORAGE_PATH, 'media')
+MEDIA_ROOT = os.path.join('/opt/storage', 'media')
 STATIC_URL = '/static/'
 # STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
@@ -91,9 +91,9 @@ WSGI_APPLICATION = 'studio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': join(STORAGE_PATH, 'db.sqlite3'),
+        # 'NAME': join(STORAGE_PATH, 'ext.sqlite3'),
         # 'NAME': BASE_DIR / 'studio.sqlite3',
-        # 'NAME': '/opt/app/storage/db.sqlite3',
+        'NAME': '/opt/storage/db.sqlite3',
     }
 }
 

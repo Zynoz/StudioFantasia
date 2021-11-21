@@ -55,7 +55,7 @@
 <section id="two" class="wrapper style2">
     {% if pics %}
         {% for pic in pics %}
-            <img class="responsive" src="{{ MEDIA_URL }}{{ pic.img.url }}" alt="Veröffentlicht am {{ pic.pub_date }}">
+            <img class="responsive" src="{{ pic.img.url }}" alt="Veröffentlicht am {{ pic.pub_date }}">
         {% endfor %}
     {% else %}
         <div style="text-align: center;"><p>Es gibt noch keine Bilder</p></div>
